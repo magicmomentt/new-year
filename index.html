@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>New Year 2026</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#0a0014',
+                            'bg-light': '#1a0f2e',
+                            accent: '#ff6b9d',
+                            'accent-light': '#ffa8c5',
+                            gold: '#ffd700',
+                            purple: '#9d4edd',
+                            'purple-light': '#c77dff',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['"Cormorant Garamond"', 'serif'],
+                        body: ['"Poppins"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'gradient-cosmic': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body
+    class="bg-gradient-to-br from-brand-bg via-brand-bg-light to-brand-purple text-white font-body overflow-hidden h-screen w-screen">
+
+    <!-- Background Audio -->
+    <audio id="bg-music" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Animated stars background -->
+    <div class="stars-bg"></div>
+
+    <div id="app" class="relative w-full h-full">
+
+        <!-- Page 1: Welcome -->
+        <section id="page-welcome"
+            class="scene active transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center z-10 cursor-pointer bg-gradient-to-br from-brand-purple/20 via-transparent to-brand-accent/20">
+            <div class="text-center space-y-6 animate-[fadeIn_1.5s_ease-out]">
+                <h1
+                    class="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-purple-light to-brand-gold px-4 leading-tight">
+                    Let's enter 2026 together
+                </h1>
+                <p class="text-brand-accent-light text-base md:text-lg animate-pulse font-light tracking-wider">(Tap to
+                    start)</p>
+            </div>
+        </section>
+
+        <!-- Page 2: Countdown -->
+        <section id="page-countdown"
+            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center pointer-events-none px-4 bg-gradient-to-br from-brand-purple/30 via-brand-bg to-brand-accent/20">
+            <div id="countdown-display"
+                class="font-heading font-extrabold text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-brand-accent to-brand-purple-light drop-shadow-2xl text-center animate-pulse">
+                00d 00h 00m 00s</div>
+            <div
+                class="absolute bottom-1/4 w-full text-center font-heading text-xl sm:text-2xl md:text-3xl text-brand-accent-light/70 drop-shadow-lg px-4">
+                Time until 2026</div>
+            <button id="btn-countdown-continue"
+                class="absolute bottom-4 md:bottom-8 px-8 py-3 bg-gradient-to-r from-brand-accent to-brand-purple hover:from-brand-accent-light hover:to-brand-purple-light text-white rounded-full font-semibold transition-all active:scale-95 z-20 pointer-events-auto text-sm md:text-base shadow-lg shadow-brand-accent/50">Continue</button>
+        </section>
+
+        <!-- Page 3: Fireworks -->
+        <section id="page-fireworks"
+            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center pointer-events-none">
+            <video id="fireworks-video" class="absolute top-0 left-0 w-full h-full object-cover -z-10" playsinline
+                muted>
+                <source src="assets/v2.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-purple/40 via-transparent to-brand-accent/20 -z-5">
+            </div>
+            <h2 id="happy-new-year"
+                class="hidden font-heading text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-brand-accent to-brand-purple-light drop-shadow-2xl text-center px-4">
+                HAPPY NEW YEAR
+            </h2>
+        </section>
+
+        <!-- Page 4: Memory Question -->
+        <section id="page-question"
+            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center px-4 pointer-events-none bg-gradient-to-br from-brand-bg via-brand-purple/20 to-brand-bg">
+            <div
+                class="text-center max-w-2xl bg-brand-bg-light/50 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-brand-purple/30 shadow-2xl shadow-brand-purple/20">
+                <p class="text-2xl md:text-3xl mb-8 leading-relaxed text-brand-accent-light font-light">Do you want to
+                    remember our happiest moments of 2025?</p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <button id="btn-show-memories"
+                        class="pointer-events-auto px-10 py-4 bg-gradient-to-r from-brand-accent to-brand-purple hover:from-brand-accent-light hover:to-brand-purple-light text-white rounded-full text-lg font-semibold transition-all active:scale-95 shadow-lg shadow-brand-accent/50">Yes
+                        ✨</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 5: Photo Gallery -->
+        <section id="page-gallery"
+            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center pointer-events-none bg-gradient-to-br from-brand-purple/20 via-brand-bg to-brand-accent/20">
+            <div class="grid grid-cols-2 gap-2 md:gap-4 w-11/12 max-w-4xl h-auto max-h-[70vh] my-4">
+                <img src="assets/a1.jpg"
+                    class="w-full h-full object-cover rounded-lg md:rounded-2xl opacity-90 hover:opacity-100 transition-all hover:scale-105 border-2 border-brand-accent/30 shadow-xl shadow-brand-purple/30"
+                    alt="Memory">
+                <img src="assets/a2.jpg"
+                    class="w-full h-full object-cover rounded-lg md:rounded-2xl opacity-90 hover:opacity-100 transition-all hover:scale-105 border-2 border-brand-accent/30 shadow-xl shadow-brand-purple/30"
+                    alt="Memory">
+                <img src="assets/a3.jpg"
+                    class="w-full h-full object-cover rounded-lg md:rounded-2xl opacity-90 hover:opacity-100 transition-all hover:scale-105 border-2 border-brand-accent/30 shadow-xl shadow-brand-purple/30"
+                    alt="Memory">
+                <img src="assets/a4.jpg"
+                    class="w-full h-full object-cover rounded-lg md:rounded-2xl opacity-90 hover:opacity-100 transition-all hover:scale-105 border-2 border-brand-accent/30 shadow-xl shadow-brand-purple/30"
+                    alt="Memory">
+            </div>
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11/12 md:w-4/5 text-center font-heading text-xl md:text-3xl lg:text-4xl bg-brand-bg-light/80 backdrop-blur-xl p-4 md:p-6 rounded-2xl md:rounded-3xl drop-shadow-2xl z-10 pointer-events-none border border-brand-accent/30 text-brand-accent-light">
+                These are my happiest moments with you in 2025
+            </div>
+            <button id="btn-next-cake"
+                class="pointer-events-auto absolute bottom-4 md:bottom-8 px-8 md:px-10 py-3 md:py-4 bg-gradient-to-r from-brand-accent to-brand-purple hover:from-brand-accent-light hover:to-brand-purple-light text-white rounded-full font-semibold transition-all active:scale-95 z-20 text-sm md:text-base shadow-lg shadow-brand-accent/50">Continue</button>
+        </section>
+
+        <!-- Page 6: Cake & Goals -->
+        <section id="page-cake"
+            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-gradient-to-br from-brand-bg via-brand-purple/30 to-brand-bg pointer-events-none px-4 py-6">
+            <h2
+                class="font-heading text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-brand-accent to-brand-purple-light">
+                Write your goals</h2>
+
+            <div
+                class="cake-container relative w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 my-2 md:my-4 z-0 flex items-end justify-center">
+                <!-- CSS Cake -->
+                <div class="css-cake">
+                    <!-- Top layer (smallest) -->
+                    <div class="cake-layer cake-layer-top"></div>
+                    <!-- Middle layer -->
+                    <div class="cake-layer cake-layer-middle"></div>
+                    <!-- Bottom layer (largest) -->
+                    <div class="cake-layer cake-layer-bottom"></div>
+                </div>
+
+                <div id="candles-container" class="absolute top-0 left-0 w-full h-full z-20 pointer-events-none">
+                    <!-- Candles injected here -->
+                </div>
+            </div>
+
+            <div class="w-full max-w-md flex flex-col items-center gap-2 md:gap-3 z-30 pointer-events-auto px-4">
+                <input type="text" id="goal-input" placeholder="My goal for 2026..."
+                    class="w-full p-3 md:p-4 rounded-2xl bg-brand-bg-light/50 backdrop-blur-xl border-2 border-brand-accent/30 text-white placeholder-brand-accent-light/50 focus:border-brand-accent focus:outline-none transition-all text-center text-base md:text-lg shadow-lg">
+                <button id="add-goal-btn"
+                    class="w-full py-3 md:py-4 bg-gradient-to-r from-brand-accent to-brand-purple hover:from-brand-accent-light hover:to-brand-purple-light text-white rounded-2xl font-semibold transition-all active:scale-95 text-sm md:text-base shadow-lg shadow-brand-accent/50">Add
+                    Candle 🕯️</button>
+            </div>
+
+            <button id="btn-finish-goals"
+                class="mt-4 md:mt-6 px-6 md:px-8 py-2 md:py-3 border-2 border-brand-accent/50 text-brand-accent-light hover:text-white hover:bg-brand-accent/20 hover:border-brand-accent rounded-full text-xs md:text-sm transition-all pointer-events-auto backdrop-blur-sm">I'm
+                Ready ✨</button>
+        </section>
+
+        <!-- Page 7: Final Message -->
+        <section id="page-final"
+            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center pointer-events-none p-6 bg-gradient-to-br from-brand-purple/30 via-brand-bg to-brand-accent/20">
+            <div
+                class="max-w-3xl text-center bg-brand-bg-light/50 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-brand-purple/30 shadow-2xl shadow-brand-purple/20">
+                <p
+                    class="font-heading text-2xl md:text-4xl lg:text-5xl leading-relaxed drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-brand-accent-light via-brand-purple-light to-brand-gold italic">
+                    "I don't need fireworks to light up my life the love we share does that every day. Happy New Year,
+                    my darling."
+                </p>
+                <div class="mt-12 flex flex-col md:flex-row gap-4 justify-center pointer-events-auto">
+                    <button onclick="location.reload()"
+                        class="px-8 py-3 border-2 border-brand-accent/50 hover:bg-brand-accent/20 hover:border-brand-accent rounded-full transition-all text-brand-accent-light hover:text-white backdrop-blur-sm">Restart
+                        Everything</button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Background Audio -->
+    <audio id="bg-music" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="app" class="relative w-full h-full">
+
+        <!-- Page 1: Welcome -->
+        <section id="page-welcome"
+            class="scene active transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center z-10 cursor-pointer">
+            <h1 class="font-heading text-4xl md:text-6xl font-bold text-center mb-4 px-4">Let’s enter 2026 together</h1>
+            <p class="text-white/60 text-sm md:text-base animate-pulse">(Tap to start)</p>
+        </section>
+
+        <!-- Page 2: Countdown -->
+        <section id="page-countdown"
+            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center pointer-events-none px-4">
+            <div id="countdown-display"
+                class="font-heading font-extrabold text-6xl sm:text-7xl md:text-9xl lg:text-[12rem] drop-shadow-2xl text-center">
+                3</div>
+            <div
+                class="absolute bottom-1/4 w-full text-center font-heading text-xl sm:text-2xl md:text-4xl drop-shadow-lg px-4">
+                Time until 2026</div>
+            <button id="btn-countdown-continue"
+                class="absolute bottom-4 md:bottom-8 px-6 py-2 md:py-3 bg-brand-accent hover:bg-brand-hover text-white rounded-full font-semibold transition-transform active:scale-95 z-20 pointer-events-auto text-sm md:text-base">Continue</button>
+        </section>
+
+        <!-- Page 3: Fireworks -->
+        <section id="page-fireworks"
+            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center pointer-events-none">
+            <video id="fireworks-video" class="absolute top-0 left-0 w-full h-full object-cover -z-10" playsinline
+                muted>
+                <source src="assets/v2.mp4" type="video/mp4">
+            </video>
+            <h2 id="happy-new-year"
+                class="hidden font-heading text-5xl md:text-7xl lg:text-8xl drop-shadow-2xl text-center px-4">
+                HAPPY NEW YEAR</h2>
+        </section>
+
+        <!-- Page 4: Memory Question -->
+        <section id="page-question"
+            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center px-4 pointer-events-none">
+            <div class="text-center max-w-2xl">
+                <p class="text-2xl md:text-3xl mb-8 leading-relaxed">Do you want to remember our happiest moments of
+                    2025?</p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <button id="btn-show-memories"
+                        class="pointer-events-auto px-8 py-3 bg-brand-accent hover:bg-brand-hover text-white rounded-full text-lg font-semibold transition-transform active:scale-95">Yes</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 5: Photo Gallery -->
+        <section id="page-gallery"
+            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center pointer-events-none">
+            <div class="grid grid-cols-2 gap-2 md:gap-4 w-11/12 max-w-4xl h-auto max-h-[70vh] my-4">
+                <img src="assets/a1.jpg"
+                    class="w-full h-full object-cover rounded-lg md:rounded-xl opacity-90 hover:opacity-100 transition-opacity"
+                    alt="Memory">
+                <img src="assets/a2.jpg"
+                    class="w-full h-full object-cover rounded-lg md:rounded-xl opacity-90 hover:opacity-100 transition-opacity"
+                    alt="Memory">
+                <img src="assets/a3.jpg"
+                    class="w-full h-full object-cover rounded-lg md:rounded-xl opacity-90 hover:opacity-100 transition-opacity"
+                    alt="Memory">
+                <img src="assets/a4.jpg"
+                    class="w-full h-full object-cover rounded-lg md:rounded-xl opacity-90 hover:opacity-100 transition-opacity"
+                    alt="Memory">
+            </div>
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11/12 md:w-4/5 text-center font-heading text-xl md:text-3xl lg:text-4xl bg-black/40 backdrop-blur-sm p-4 md:p-6 rounded-xl md:rounded-2xl drop-shadow-xl z-10 pointer-events-none">
+                These are my happiest moments with you in 2025
+            </div>
+            <button id="btn-next-cake"
+                class="pointer-events-auto absolute bottom-4 md:bottom-8 px-6 md:px-8 py-2 md:py-3 bg-brand-accent hover:bg-brand-hover text-white rounded-full font-semibold transition-transform active:scale-95 z-20 text-sm md:text-base">Continue</button>
+        </section>
+
+        <!-- Page 6: Cake & Goals -->
+        <section id="page-cake"
+            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-[#0f1015] pointer-events-none px-4 py-6">
+            <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl mb-4 md:mb-6 text-center">Write your goals</h2>
+
+            <div
+                class="cake-container relative w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 my-2 md:my-4 z-0">
+                <img src="assets/cake.jpg" alt="Cake" class="w-full h-full object-contain relative z-10">
+                <div id="candles-container" class="absolute top-0 left-0 w-full h-full z-20 pointer-events-none">
+                    <!-- Candles injected here, positioned absolutely relative to this container -->
+                </div>
+            </div>
+
+            <div class="w-full max-w-md flex flex-col items-center gap-2 md:gap-3 z-30 pointer-events-auto px-4">
+                <input type="text" id="goal-input" placeholder="My goal for 2026..."
+                    class="w-full p-2 md:p-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:border-brand-accent focus:outline-none transition-colors text-center text-base md:text-lg">
+                <button id="add-goal-btn"
+                    class="w-full py-2 md:py-3 bg-brand-accent hover:bg-brand-hover text-white rounded-full font-semibold transition-transform active:scale-95 text-sm md:text-base">Add
+                    Candle</button>
+            </div>
+
+            <button id="btn-finish-goals"
+                class="mt-4 md:mt-6 px-5 md:px-6 py-2 border border-white/30 text-white/80 hover:text-white hover:border-white rounded-full text-xs md:text-sm transition-colors pointer-events-auto">I'm
+                Ready</button>
+        </section>
+
+        <!-- Page 7: Final Message -->
+        <section id="page-final"
+            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center pointer-events-none p-6">
+            <div class="max-w-3xl text-center">
+                <p class="font-heading text-2xl md:text-4xl leading-relaxed drop-shadow-lg">
+                    “I don’t need fireworks to light up my life the love we share does that every day, Happy New Year,
+                    my darling.”
+                </p>
+                <div class="mt-12 flex flex-col md:flex-row gap-4 justify-center pointer-events-auto">
+                    <button onclick="location.reload()"
+                        class="px-6 py-3 border border-white/30 hover:bg-white/10 rounded-full transition-colors">Restart
+                        Everything</button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
