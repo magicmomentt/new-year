@@ -100,9 +100,35 @@ document.addEventListener('DOMContentLoaded', () => {
         const video = document.getElementById('fireworks-video');
         const hnyText = document.getElementById('happy-new-year');
 
+        // Force reload the video to prevent freezing
+        video.load();
+
+        // Reset to beginning
         video.currentTime = 0;
         video.muted = false; // Unmute for effect if desired, or keep muted
-        video.play().catch(e => console.error("Video play failed", e));
+
+        // Wait for video to be ready before playing
+        const playVideo = () => {
+            video.play().catch(e => {
+                console.error("Video play failed", e);
+                // If video fails, still show text and continue
+                hnyText.classList.remove('hidden');
+                setTimeout(() => {
+                    if (currentSceneId === 'page-fireworks') {
+                        transitionToScene('page-question');
+                    }
+                }, 3000);
+            });
+        };
+
+        // Check if video is ready
+        if (video.readyState >= 3) {
+            // Video is ready to play
+            playVideo();
+        } else {
+            // Wait for video to load
+            video.addEventListener('canplay', playVideo, { once: true });
+        }
 
         // Show Text after a moment
         setTimeout(() => {
