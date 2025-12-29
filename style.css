@@ -273,6 +273,58 @@ body {
     }
 }
 
+/* Photo Gallery Responsive Improvements */
+#page-gallery .grid {
+    grid-auto-rows: 1fr;
+}
+
+#page-gallery img {
+    display: block;
+    width: 100%;
+}
+
+/* Ensure aspect-square works on all browsers */
+.aspect-square {
+    aspect-ratio: 1 / 1;
+}
+
+/* Fallback for older browsers that don't support aspect-ratio */
+@supports not (aspect-ratio: 1 / 1) {
+    .aspect-square::before {
+        content: '';
+        display: block;
+        padding-top: 100%;
+    }
+
+    .aspect-square img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* Desktop gallery optimization */
+@media (min-width: 1024px) {
+    #page-gallery .grid {
+        gap: 1.5rem;
+    }
+
+    #page-gallery img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Ultra-wide screen optimization */
+@media (min-width: 1920px) {
+    #page-gallery .grid {
+        max-width: 1200px;
+    }
+}
+
+
 /* Better spacing for very small screens */
 @media (max-width: 360px) {
     .px-6 {
