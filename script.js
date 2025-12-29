@@ -152,24 +152,36 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!text) return;
 
         const candle = document.createElement('div');
-        // Tailwind classes for candle - smaller on mobile
-        candle.className = 'absolute w-2 h-8 sm:w-3 sm:h-12 rounded-sm shadow-lg origin-bottom animate-[growIn_0.5s_ease-out] z-20';
-        candle.style.background = 'linear-gradient(to bottom, #fefCE8, #fcd34d)';
 
-        // Responsive positioning based on screen size
+        // Responsive sizing based on screen width
         const isMobile = window.innerWidth < 640; // sm breakpoint
+        const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024;
+
+        // Adjust candle size based on device
+        let candleWidth = isMobile ? 'w-2' : isTablet ? 'w-2.5' : 'w-3';
+        let candleHeight = isMobile ? 'h-8' : isTablet ? 'h-10' : 'h-12';
+
+        candle.className = `candle absolute ${candleWidth} ${candleHeight} rounded-sm shadow-lg origin-bottom animate-[growIn_0.5s_ease-out] z-20`;
+        candle.style.background = 'linear-gradient(to bottom, #fefCE8, #fcd34d)';
 
         // Find a position that doesn't overlap with existing candles
         let randomLeft, randomTop;
         let attempts = 0;
         const maxAttempts = 50;
 
+        // Adjust minimum distance based on screen size
+        const minDistance = isMobile ? 12 : isTablet ? 15 : 20;
+
         do {
             // Keep candles within the cake shape boundaries
-            // Horizontal: 20% to 80% (centered on cake)
-            // Vertical: 15% to 65% (on the cake layers, not above or below)
-            randomLeft = Math.floor(Math.random() * 60) + 20;  // 20% to 80%
-            randomTop = Math.floor(Math.random() * 50) + 15;   // 15% to 65%
+            // Adjust positioning range based on screen size
+            if (isMobile) {
+                randomLeft = Math.floor(Math.random() * 50) + 25;  // 25% to 75% (tighter on mobile)
+                randomTop = Math.floor(Math.random() * 45) + 20;   // 20% to 65%
+            } else {
+                randomLeft = Math.floor(Math.random() * 60) + 20;  // 20% to 80%
+                randomTop = Math.floor(Math.random() * 50) + 15;   // 15% to 65%
+            }
 
             attempts++;
 
@@ -179,8 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     Math.pow(pos.left - randomLeft, 2) +
                     Math.pow(pos.top - randomTop, 2)
                 );
-                // Minimum distance: 15 for mobile, 20 for desktop
-                return distance < (isMobile ? 15 : 20);
+                return distance < minDistance;
             });
 
             if (!tooClose || attempts >= maxAttempts) {
@@ -194,13 +205,16 @@ document.addEventListener('DOMContentLoaded', () => {
         candle.style.left = randomLeft + '%';
         candle.style.top = randomTop + '%';
 
-        // Flame - smaller on mobile
+        // Flame - responsive sizing
         const flame = document.createElement('div');
-        flame.className = 'absolute -top-2 sm:-top-3 left-1/2 -translate-x-1/2 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-500 rounded-full shadow-[0_0_10px_#f59e0b] animate-[flicker_0.1s_infinite_alternate]';
+        const flameSize = isMobile ? 'w-1.5 h-1.5' : 'w-2 h-2';
+        const flameTop = isMobile ? '-top-2' : '-top-3';
+        flame.className = `flame absolute ${flameTop} left-1/2 -translate-x-1/2 ${flameSize} bg-red-500 rounded-full shadow-[0_0_10px_#f59e0b] animate-[flicker_0.1s_infinite_alternate]`;
 
-        // Text Label - smaller on mobile, with better visibility
+        // Text Label - responsive sizing and better visibility
         const label = document.createElement('div');
-        label.className = 'absolute bottom-full left-1/2 -translate-x-1/2 mb-0.5 sm:mb-1 bg-black/90 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded text-[10px] sm:text-xs whitespace-nowrap text-white pointer-events-auto shadow-lg';
+        const labelSize = isMobile ? 'text-[10px] px-1.5 py-0.5 mb-0.5' : isTablet ? 'text-xs px-2 py-1 mb-1' : 'text-xs px-2 py-1 mb-1';
+        label.className = `absolute bottom-full left-1/2 -translate-x-1/2 ${labelSize} bg-black/90 rounded whitespace-nowrap text-white pointer-events-auto shadow-lg`;
         label.textContent = text;
 
         candle.appendChild(flame);
@@ -208,6 +222,11 @@ document.addEventListener('DOMContentLoaded', () => {
         candlesContainer.appendChild(candle);
 
         goalInput.value = '';
+
+        // Haptic feedback on mobile (if supported)
+        if (navigator.vibrate) {
+            navigator.vibrate(50);
+        }
     }
 
     if (addGoalBtn && goalInput) {
@@ -223,4 +242,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Page 7: Final ---
     // Just static text
+
+    // Handle window resize for better responsiveness
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            // Update any dynamic elements if needed
+            // This helps with orientation changes
+            const isMobile = window.innerWidth < 640;
+            const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024;
+
+            // Update body class for orientation
+            if (window.innerHeight > window.innerWidth) {
+                document.body.classList.add('portrait');
+                document.body.classList.remove('landscape');
+            } else {
+                document.body.classList.add('landscape');
+                document.body.classList.remove('portrait');
+            }
+        }, 250);
+    });
+
+    // Set initial orientation class
+    if (window.innerHeight > window.innerWidth) {
+        document.body.classList.add('portrait');
+    } else {
+        document.body.classList.add('landscape');
+    }
 });

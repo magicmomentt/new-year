@@ -63,10 +63,12 @@
             class="scene active transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center z-10 cursor-pointer bg-gradient-to-br from-brand-purple/20 via-transparent to-brand-accent/20">
             <div class="text-center space-y-6 animate-[fadeIn_1.5s_ease-out]">
                 <h1
-                    class="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-purple-light to-brand-gold px-4 leading-tight">
+                    class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-purple-light to-brand-gold px-6 leading-tight">
                     Let's enter 2026 together
                 </h1>
-                <p class="text-brand-accent-light text-base md:text-lg animate-pulse font-light tracking-wider">(Tap to
+                <p
+                    class="text-brand-accent-light text-sm sm:text-base md:text-lg animate-pulse font-light tracking-wider mt-4">
+                    (Tap to
                     start)</p>
             </div>
         </section>
@@ -75,13 +77,13 @@
         <section id="page-countdown"
             class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center pointer-events-none px-4 bg-gradient-to-br from-brand-purple/30 via-brand-bg to-brand-accent/20">
             <div id="countdown-display"
-                class="font-heading font-extrabold text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-brand-accent to-brand-purple-light drop-shadow-2xl text-center animate-pulse">
+                class="font-heading font-extrabold text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-brand-accent to-brand-purple-light drop-shadow-2xl text-center animate-pulse px-4">
                 00d 00h 00m 00s</div>
             <div
-                class="absolute bottom-1/4 w-full text-center font-heading text-xl sm:text-2xl md:text-3xl text-brand-accent-light/70 drop-shadow-lg px-4">
+                class="absolute bottom-1/4 w-full text-center font-heading text-base sm:text-xl md:text-2xl lg:text-3xl text-brand-accent-light/70 drop-shadow-lg px-6">
                 Time until 2026</div>
             <button id="btn-countdown-continue"
-                class="absolute bottom-4 md:bottom-8 px-8 py-3 bg-gradient-to-r from-brand-accent to-brand-purple hover:from-brand-accent-light hover:to-brand-purple-light text-white rounded-full font-semibold transition-all active:scale-95 z-20 pointer-events-auto text-sm md:text-base shadow-lg shadow-brand-accent/50">Continue</button>
+                class="absolute bottom-6 md:bottom-10 px-10 py-4 min-h-[44px] bg-gradient-to-r from-brand-accent to-brand-purple hover:from-brand-accent-light hover:to-brand-purple-light text-white rounded-full font-semibold transition-all active:scale-95 z-20 pointer-events-auto text-base md:text-lg shadow-lg shadow-brand-accent/50">Continue</button>
         </section>
 
         <!-- Page 3: Fireworks -->
@@ -94,7 +96,7 @@
             <div class="absolute inset-0 bg-gradient-to-t from-brand-purple/40 via-transparent to-brand-accent/20 -z-5">
             </div>
             <h2 id="happy-new-year"
-                class="hidden font-heading text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-brand-accent to-brand-purple-light drop-shadow-2xl text-center px-4">
+                class="hidden font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-brand-accent to-brand-purple-light drop-shadow-2xl text-center px-6 leading-tight">
                 HAPPY NEW YEAR
             </h2>
         </section>
@@ -103,12 +105,14 @@
         <section id="page-question"
             class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center px-4 pointer-events-none bg-gradient-to-br from-brand-bg via-brand-purple/20 to-brand-bg">
             <div
-                class="text-center max-w-2xl bg-brand-bg-light/50 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-brand-purple/30 shadow-2xl shadow-brand-purple/20">
-                <p class="text-2xl md:text-3xl mb-8 leading-relaxed text-brand-accent-light font-light">Do you want to
+                class="text-center max-w-2xl mx-4 bg-brand-bg-light/50 backdrop-blur-xl p-6 sm:p-8 md:p-12 rounded-2xl md:rounded-3xl border border-brand-purple/30 shadow-2xl shadow-brand-purple/20">
+                <p
+                    class="text-xl sm:text-2xl md:text-3xl mb-6 sm:mb-8 leading-relaxed text-brand-accent-light font-light">
+                    Do you want to
                     remember our happiest moments of 2025?</p>
                 <div class="flex flex-col md:flex-row gap-4 justify-center">
                     <button id="btn-show-memories"
-                        class="pointer-events-auto px-10 py-4 bg-gradient-to-r from-brand-accent to-brand-purple hover:from-brand-accent-light hover:to-brand-purple-light text-white rounded-full text-lg font-semibold transition-all active:scale-95 shadow-lg shadow-brand-accent/50">Yes
+                        class="pointer-events-auto px-10 py-4 min-h-[44px] bg-gradient-to-r from-brand-accent to-brand-purple hover:from-brand-accent-light hover:to-brand-purple-light text-white rounded-full text-base sm:text-lg font-semibold transition-all active:scale-95 shadow-lg shadow-brand-accent/50">Yes
                         ✨</button>
                 </div>
             </div>
@@ -117,37 +121,38 @@
         <!-- Page 5: Photo Gallery -->
         <section id="page-gallery"
             class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center pointer-events-none bg-gradient-to-br from-brand-purple/20 via-brand-bg to-brand-accent/20">
-            <div class="grid grid-cols-2 gap-2 md:gap-4 w-11/12 max-w-4xl h-auto max-h-[70vh] my-4">
+            <div
+                class="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 w-11/12 max-w-4xl h-auto max-h-[65vh] sm:max-h-[70vh] my-4 px-2">
                 <img src="assets/a1.jpg"
-                    class="w-full h-full object-cover rounded-lg md:rounded-2xl opacity-90 hover:opacity-100 transition-all hover:scale-105 border-2 border-brand-accent/30 shadow-xl shadow-brand-purple/30"
+                    class="w-full h-full min-h-[120px] sm:min-h-[150px] object-cover rounded-lg md:rounded-2xl opacity-90 hover:opacity-100 transition-all hover:scale-105 border-2 border-brand-accent/30 shadow-xl shadow-brand-purple/30"
                     alt="Memory">
                 <img src="assets/a2.jpg"
-                    class="w-full h-full object-cover rounded-lg md:rounded-2xl opacity-90 hover:opacity-100 transition-all hover:scale-105 border-2 border-brand-accent/30 shadow-xl shadow-brand-purple/30"
+                    class="w-full h-full min-h-[120px] sm:min-h-[150px] object-cover rounded-lg md:rounded-2xl opacity-90 hover:opacity-100 transition-all hover:scale-105 border-2 border-brand-accent/30 shadow-xl shadow-brand-purple/30"
                     alt="Memory">
                 <img src="assets/a3.jpg"
-                    class="w-full h-full object-cover rounded-lg md:rounded-2xl opacity-90 hover:opacity-100 transition-all hover:scale-105 border-2 border-brand-accent/30 shadow-xl shadow-brand-purple/30"
+                    class="w-full h-full min-h-[120px] sm:min-h-[150px] object-cover rounded-lg md:rounded-2xl opacity-90 hover:opacity-100 transition-all hover:scale-105 border-2 border-brand-accent/30 shadow-xl shadow-brand-purple/30"
                     alt="Memory">
                 <img src="assets/a4.jpg"
-                    class="w-full h-full object-cover rounded-lg md:rounded-2xl opacity-90 hover:opacity-100 transition-all hover:scale-105 border-2 border-brand-accent/30 shadow-xl shadow-brand-purple/30"
+                    class="w-full h-full min-h-[120px] sm:min-h-[150px] object-cover rounded-lg md:rounded-2xl opacity-90 hover:opacity-100 transition-all hover:scale-105 border-2 border-brand-accent/30 shadow-xl shadow-brand-purple/30"
                     alt="Memory">
             </div>
             <div
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11/12 md:w-4/5 text-center font-heading text-xl md:text-3xl lg:text-4xl bg-brand-bg-light/80 backdrop-blur-xl p-4 md:p-6 rounded-2xl md:rounded-3xl drop-shadow-2xl z-10 pointer-events-none border border-brand-accent/30 text-brand-accent-light">
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11/12 sm:w-10/12 md:w-4/5 text-center font-heading text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl bg-brand-bg-light/80 backdrop-blur-xl p-3 sm:p-4 md:p-6 rounded-xl md:rounded-2xl lg:rounded-3xl drop-shadow-2xl z-10 pointer-events-none border border-brand-accent/30 text-brand-accent-light">
                 These are my happiest moments with you in 2025
             </div>
             <button id="btn-next-cake"
-                class="pointer-events-auto absolute bottom-4 md:bottom-8 px-8 md:px-10 py-3 md:py-4 bg-gradient-to-r from-brand-accent to-brand-purple hover:from-brand-accent-light hover:to-brand-purple-light text-white rounded-full font-semibold transition-all active:scale-95 z-20 text-sm md:text-base shadow-lg shadow-brand-accent/50">Continue</button>
+                class="pointer-events-auto absolute bottom-6 md:bottom-10 px-10 py-4 min-h-[44px] bg-gradient-to-r from-brand-accent to-brand-purple hover:from-brand-accent-light hover:to-brand-purple-light text-white rounded-full font-semibold transition-all active:scale-95 z-20 text-base md:text-lg shadow-lg shadow-brand-accent/50">Continue</button>
         </section>
 
         <!-- Page 6: Cake & Goals -->
         <section id="page-cake"
             class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-gradient-to-br from-brand-bg via-brand-purple/30 to-brand-bg pointer-events-none px-4 py-6">
             <h2
-                class="font-heading text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-brand-accent to-brand-purple-light">
+                class="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4 md:mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-brand-accent to-brand-purple-light px-4">
                 Write your goals</h2>
 
             <div
-                class="cake-container relative w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 my-2 md:my-4 z-0 flex items-end justify-center">
+                class="cake-container relative w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 my-2 sm:my-3 md:my-4 z-0 flex items-end justify-center">
                 <!-- CSS Cake -->
                 <div class="css-cake">
                     <!-- Top layer (smallest) -->
@@ -163,16 +168,16 @@
                 </div>
             </div>
 
-            <div class="w-full max-w-md flex flex-col items-center gap-2 md:gap-3 z-30 pointer-events-auto px-4">
+            <div class="w-full max-w-md flex flex-col items-center gap-3 md:gap-4 z-30 pointer-events-auto px-6">
                 <input type="text" id="goal-input" placeholder="My goal for 2026..."
-                    class="w-full p-3 md:p-4 rounded-2xl bg-brand-bg-light/50 backdrop-blur-xl border-2 border-brand-accent/30 text-white placeholder-brand-accent-light/50 focus:border-brand-accent focus:outline-none transition-all text-center text-base md:text-lg shadow-lg">
+                    class="w-full p-4 md:p-5 min-h-[44px] rounded-2xl bg-brand-bg-light/50 backdrop-blur-xl border-2 border-brand-accent/30 text-white placeholder-brand-accent-light/50 focus:border-brand-accent focus:outline-none transition-all text-center text-base md:text-lg shadow-lg">
                 <button id="add-goal-btn"
-                    class="w-full py-3 md:py-4 bg-gradient-to-r from-brand-accent to-brand-purple hover:from-brand-accent-light hover:to-brand-purple-light text-white rounded-2xl font-semibold transition-all active:scale-95 text-sm md:text-base shadow-lg shadow-brand-accent/50">Add
+                    class="w-full py-4 md:py-5 min-h-[44px] bg-gradient-to-r from-brand-accent to-brand-purple hover:from-brand-accent-light hover:to-brand-purple-light text-white rounded-2xl font-semibold transition-all active:scale-95 text-base md:text-lg shadow-lg shadow-brand-accent/50">Add
                     Candle 🕯️</button>
             </div>
 
             <button id="btn-finish-goals"
-                class="mt-4 md:mt-6 px-6 md:px-8 py-2 md:py-3 border-2 border-brand-accent/50 text-brand-accent-light hover:text-white hover:bg-brand-accent/20 hover:border-brand-accent rounded-full text-xs md:text-sm transition-all pointer-events-auto backdrop-blur-sm">I'm
+                class="mt-5 md:mt-7 px-8 md:px-10 py-3 md:py-4 min-h-[44px] border-2 border-brand-accent/50 text-brand-accent-light hover:text-white hover:bg-brand-accent/20 hover:border-brand-accent rounded-full text-sm md:text-base transition-all pointer-events-auto backdrop-blur-sm">I'm
                 Ready ✨</button>
         </section>
 
@@ -180,136 +185,15 @@
         <section id="page-final"
             class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center pointer-events-none p-6 bg-gradient-to-br from-brand-purple/30 via-brand-bg to-brand-accent/20">
             <div
-                class="max-w-3xl text-center bg-brand-bg-light/50 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-brand-purple/30 shadow-2xl shadow-brand-purple/20">
+                class="max-w-3xl mx-4 text-center bg-brand-bg-light/50 backdrop-blur-xl p-6 sm:p-8 md:p-12 rounded-2xl md:rounded-3xl border border-brand-purple/30 shadow-2xl shadow-brand-purple/20">
                 <p
-                    class="font-heading text-2xl md:text-4xl lg:text-5xl leading-relaxed drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-brand-accent-light via-brand-purple-light to-brand-gold italic">
+                    class="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-relaxed drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-brand-accent-light via-brand-purple-light to-brand-gold italic">
                     "I don't need fireworks to light up my life the love we share does that every day. Happy New Year,
                     my darling."
                 </p>
-                <div class="mt-12 flex flex-col md:flex-row gap-4 justify-center pointer-events-auto">
+                <div class="mt-8 sm:mt-10 md:mt-12 flex flex-col md:flex-row gap-4 justify-center pointer-events-auto">
                     <button onclick="location.reload()"
-                        class="px-8 py-3 border-2 border-brand-accent/50 hover:bg-brand-accent/20 hover:border-brand-accent rounded-full transition-all text-brand-accent-light hover:text-white backdrop-blur-sm">Restart
-                        Everything</button>
-                </div>
-            </div>
-        </section>
-
-    </div>
-
-    <!-- Background Audio -->
-    <audio id="bg-music" loop>
-        <source src="assets/music.mp3" type="audio/mpeg">
-    </audio>
-
-    <div id="app" class="relative w-full h-full">
-
-        <!-- Page 1: Welcome -->
-        <section id="page-welcome"
-            class="scene active transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center z-10 cursor-pointer">
-            <h1 class="font-heading text-4xl md:text-6xl font-bold text-center mb-4 px-4">Let’s enter 2026 together</h1>
-            <p class="text-white/60 text-sm md:text-base animate-pulse">(Tap to start)</p>
-        </section>
-
-        <!-- Page 2: Countdown -->
-        <section id="page-countdown"
-            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center pointer-events-none px-4">
-            <div id="countdown-display"
-                class="font-heading font-extrabold text-6xl sm:text-7xl md:text-9xl lg:text-[12rem] drop-shadow-2xl text-center">
-                3</div>
-            <div
-                class="absolute bottom-1/4 w-full text-center font-heading text-xl sm:text-2xl md:text-4xl drop-shadow-lg px-4">
-                Time until 2026</div>
-            <button id="btn-countdown-continue"
-                class="absolute bottom-4 md:bottom-8 px-6 py-2 md:py-3 bg-brand-accent hover:bg-brand-hover text-white rounded-full font-semibold transition-transform active:scale-95 z-20 pointer-events-auto text-sm md:text-base">Continue</button>
-        </section>
-
-        <!-- Page 3: Fireworks -->
-        <section id="page-fireworks"
-            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center pointer-events-none">
-            <video id="fireworks-video" class="absolute top-0 left-0 w-full h-full object-cover -z-10" playsinline
-                muted>
-                <source src="assets/v2.mp4" type="video/mp4">
-            </video>
-            <h2 id="happy-new-year"
-                class="hidden font-heading text-5xl md:text-7xl lg:text-8xl drop-shadow-2xl text-center px-4">
-                HAPPY NEW YEAR</h2>
-        </section>
-
-        <!-- Page 4: Memory Question -->
-        <section id="page-question"
-            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center px-4 pointer-events-none">
-            <div class="text-center max-w-2xl">
-                <p class="text-2xl md:text-3xl mb-8 leading-relaxed">Do you want to remember our happiest moments of
-                    2025?</p>
-                <div class="flex flex-col md:flex-row gap-4 justify-center">
-                    <button id="btn-show-memories"
-                        class="pointer-events-auto px-8 py-3 bg-brand-accent hover:bg-brand-hover text-white rounded-full text-lg font-semibold transition-transform active:scale-95">Yes</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Page 5: Photo Gallery -->
-        <section id="page-gallery"
-            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center pointer-events-none">
-            <div class="grid grid-cols-2 gap-2 md:gap-4 w-11/12 max-w-4xl h-auto max-h-[70vh] my-4">
-                <img src="assets/a1.jpg"
-                    class="w-full h-full object-cover rounded-lg md:rounded-xl opacity-90 hover:opacity-100 transition-opacity"
-                    alt="Memory">
-                <img src="assets/a2.jpg"
-                    class="w-full h-full object-cover rounded-lg md:rounded-xl opacity-90 hover:opacity-100 transition-opacity"
-                    alt="Memory">
-                <img src="assets/a3.jpg"
-                    class="w-full h-full object-cover rounded-lg md:rounded-xl opacity-90 hover:opacity-100 transition-opacity"
-                    alt="Memory">
-                <img src="assets/a4.jpg"
-                    class="w-full h-full object-cover rounded-lg md:rounded-xl opacity-90 hover:opacity-100 transition-opacity"
-                    alt="Memory">
-            </div>
-            <div
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11/12 md:w-4/5 text-center font-heading text-xl md:text-3xl lg:text-4xl bg-black/40 backdrop-blur-sm p-4 md:p-6 rounded-xl md:rounded-2xl drop-shadow-xl z-10 pointer-events-none">
-                These are my happiest moments with you in 2025
-            </div>
-            <button id="btn-next-cake"
-                class="pointer-events-auto absolute bottom-4 md:bottom-8 px-6 md:px-8 py-2 md:py-3 bg-brand-accent hover:bg-brand-hover text-white rounded-full font-semibold transition-transform active:scale-95 z-20 text-sm md:text-base">Continue</button>
-        </section>
-
-        <!-- Page 6: Cake & Goals -->
-        <section id="page-cake"
-            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-[#0f1015] pointer-events-none px-4 py-6">
-            <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl mb-4 md:mb-6 text-center">Write your goals</h2>
-
-            <div
-                class="cake-container relative w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 my-2 md:my-4 z-0">
-                <img src="assets/cake.jpg" alt="Cake" class="w-full h-full object-contain relative z-10">
-                <div id="candles-container" class="absolute top-0 left-0 w-full h-full z-20 pointer-events-none">
-                    <!-- Candles injected here, positioned absolutely relative to this container -->
-                </div>
-            </div>
-
-            <div class="w-full max-w-md flex flex-col items-center gap-2 md:gap-3 z-30 pointer-events-auto px-4">
-                <input type="text" id="goal-input" placeholder="My goal for 2026..."
-                    class="w-full p-2 md:p-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:border-brand-accent focus:outline-none transition-colors text-center text-base md:text-lg">
-                <button id="add-goal-btn"
-                    class="w-full py-2 md:py-3 bg-brand-accent hover:bg-brand-hover text-white rounded-full font-semibold transition-transform active:scale-95 text-sm md:text-base">Add
-                    Candle</button>
-            </div>
-
-            <button id="btn-finish-goals"
-                class="mt-4 md:mt-6 px-5 md:px-6 py-2 border border-white/30 text-white/80 hover:text-white hover:border-white rounded-full text-xs md:text-sm transition-colors pointer-events-auto">I'm
-                Ready</button>
-        </section>
-
-        <!-- Page 7: Final Message -->
-        <section id="page-final"
-            class="scene hidden opacity-0 transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center pointer-events-none p-6">
-            <div class="max-w-3xl text-center">
-                <p class="font-heading text-2xl md:text-4xl leading-relaxed drop-shadow-lg">
-                    “I don’t need fireworks to light up my life the love we share does that every day, Happy New Year,
-                    my darling.”
-                </p>
-                <div class="mt-12 flex flex-col md:flex-row gap-4 justify-center pointer-events-auto">
-                    <button onclick="location.reload()"
-                        class="px-6 py-3 border border-white/30 hover:bg-white/10 rounded-full transition-colors">Restart
+                        class="px-10 py-4 min-h-[44px] border-2 border-brand-accent/50 hover:bg-brand-accent/20 hover:border-brand-accent rounded-full transition-all text-base md:text-lg text-brand-accent-light hover:text-white backdrop-blur-sm">Restart
                         Everything</button>
                 </div>
             </div>
